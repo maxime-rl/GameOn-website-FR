@@ -6,19 +6,35 @@ const closeBtn = document.querySelectorAll(".close, .btn-close");
 const modalbg = document.querySelector(".bground");
 const modalSuccessMessage = document.querySelector(".reservation-accepted");
 
-// click : launch modal
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+// ********* class Modal *********
+class Modal {
 
-// click : close modal
-closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
+  constructor(open, close, modalBackground, modalSuccessMessage) {
+    this.open = open;
+    this.close = close;
+    this.modalBackground = modalBackground;
+    this.modalSuccessMessage = modalSuccessMessage;
+  }
 
-// launch modal
-function launchModal() {
-  modalbg.style.display = "block";
+  openModal() {
+    this.open.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        this.modalBackground.style.display = "block";
+      });
+    });
+  }
+
+  closeModal() {
+    this.close.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        this.modalBackground.style.display = "none";
+        this.modalSuccessMessage.style.display = "none";
+      });
+    });
+  }
 }
 
-// close modal
-function closeModal() {
-  modalbg.style.display = "none";
-  modalSuccessMessage.style.display = "none";
-}
+const modalInscription = new Modal(modalBtn, closeBtn, modalbg, modalSuccessMessage);
+
+modalInscription.openModal();
+modalInscription.closeModal();

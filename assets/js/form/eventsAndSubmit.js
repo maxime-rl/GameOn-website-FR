@@ -7,22 +7,22 @@ const form = document.querySelector("form");
 form.addEventListener("change", function (e) {
   switch (e.target.id) {
       case "first":
-          checkedFirstName(first);
+          checkedFormInscription.checkedFirstName();
           break;
       case "last":
-          checkedLastName(last);
+          checkedFormInscription.checkedLastName();
           break;
       case "email":
-          checkedEmail(email);
+          checkedFormInscription.checkedEmail();
           break;
       case "birthdate":
-          checkedBirthdate(birthdate);
+          checkedFormInscription.checkedBirthdate();
           break;
       case "quantity":
-          checkedQuantity(quantity);
+          checkedFormInscription.checkedQuantity();
           break;
       case "cgu":
-          checkedCgu(cgu);
+          checkedFormInscription.checkedCgu();
           break;
     }
 });
@@ -31,13 +31,13 @@ form.addEventListener("change", function (e) {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   if (
-    checkedFirstName(first) &&
-    checkedLastName(last) &&
-    checkedEmail(email) &&
-    checkedBirthdate(birthdate) &&
-    checkedQuantity(quantity) &&
-    checkedLocation() &&
-    checkedCgu(cgu)
+    checkedFormInscription.checkedFirstName() &&
+    checkedFormInscription.checkedLastName() &&
+    checkedFormInscription.checkedEmail() &&
+    checkedFormInscription.checkedBirthdate() &&
+    checkedFormInscription.checkedQuantity() &&
+    checkedFormInscription.checkedLocation() &&
+    checkedFormInscription.checkedCgu()
   ) {
     modalSuccessMessage.style.display = "flex";
     this.reset();
